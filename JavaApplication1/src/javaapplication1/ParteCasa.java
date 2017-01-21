@@ -9,6 +9,6 @@ package javaapplication1;
  *
  * @author Santiago
  */
-public enum Elemento {
+public enum ParteCasa {
     PISCINA, PISO, TECHO, PARED
 }

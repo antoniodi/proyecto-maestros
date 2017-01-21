@@ -10,7 +10,7 @@ import java.util.*;
  * @author Santiago
  */
 public class Obra {
-    private HashMap<Elemento,ArrayList<Habilidad>> obra;
+    private HashMap<ParteCasa,ArrayList<Habilidad>> obra;
    
 
     /**
@@ -18,8 +18,8 @@ public class Obra {
      */
     public Obra()
     {obra = new HashMap<>();
-     obra.put(Elemento.PISO,agregarHabilidades(Habilidad.ENCHAPE,Habilidad.MANPOSTERIA));
-     obra.put(Elemento.PARED,agregarHabilidades(Habilidad.PINTURA,Habilidad.ESTUCO,Habilidad.ENCHAPE));
+     obra.put(ParteCasa.PISO,agregarHabilidades(Habilidad.ENCHAPE,Habilidad.MANPOSTERIA));
+     obra.put(ParteCasa.PARED,agregarHabilidades(Habilidad.PINTURA,Habilidad.ESTUCO,Habilidad.ENCHAPE));
             
     }
     /**
