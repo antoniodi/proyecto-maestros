@@ -7,9 +7,8 @@ package model;
 
 /**
  *
- * @author JULIZ T
+ * @author Santiago
  */
 public enum Municipio {
-    BUCARAMANGA, PIEDECUESTA, FLORIA, GIRON
-    
+    CALI, BUCARAMANGA, PIEDECUESTA, FLORIDA
 }
