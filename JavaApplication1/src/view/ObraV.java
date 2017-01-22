@@ -48,7 +48,7 @@ public class ObraV extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SELECIONE UNA PARTE DE LA CASA");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 340, 50);
+        jLabel1.setBounds(0, 0, 360, 50);
 
         panelImage1.setToolTipText("");
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/brick-wall.png"))); // NOI18N
