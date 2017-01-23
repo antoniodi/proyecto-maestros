@@ -24,6 +24,8 @@ public class BuscarMaestro extends javax.swing.JFrame {
         this.habilidades = habilidades;
         
         for (int i = 0; i < habilidades.size(); i++) {
+            jComboBox1.addItem(habilidades.get(i).toString());
+            
             System.out.println(habilidades.get(i).toString());      
         }
     }
@@ -59,7 +61,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 360, 50);
 
         jComboBox1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las especialidades" }));
 
         jLabel2.setBackground(new java.awt.Color(102, 255, 102));
         jLabel2.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 18)); // NOI18N
