@@ -7,6 +7,7 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.table.DefaultTableModel;
 import model.Habilidad;
 
 /**
@@ -19,6 +20,8 @@ public class BuscarMaestro extends javax.swing.JFrame {
      * Creates new form BuscarMaestro
      */
     private ArrayList<Habilidad> habilidades;
+    private DefaultTableModel model;
+    
     public BuscarMaestro(ArrayList<Habilidad> habilidades) {
         initComponents();
         this.habilidades = habilidades;
@@ -28,6 +31,16 @@ public class BuscarMaestro extends javax.swing.JFrame {
             
             System.out.println(habilidades.get(i).toString());      
         }
+        
+        String[] titulos = {"Nombre", "Destreza", "Puntuacion"};
+        model = new DefaultTableModel(null, titulos);
+       
+        String[] fila = {"Pedro","Pintura", "4.5"};
+        model.addRow(fila);
+        jTable1.setModel(model);
+        
+        
+        
     }
 
     /**
@@ -70,17 +83,11 @@ public class BuscarMaestro extends javax.swing.JFrame {
         jLabel2.setText("SELECIONE UN MAESTRO");
 
         jTable1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
-        ));
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -131,6 +138,13 @@ public class BuscarMaestro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        //click sobre la tabla
+        int fila = jTable1.getSelectedRow();
+        System.out.println(fila);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
