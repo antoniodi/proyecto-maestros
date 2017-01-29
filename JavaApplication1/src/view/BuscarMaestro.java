@@ -56,7 +56,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
         */
         for (Maestro maestro : maestros) {      
             if (maestro.getCumple(cliente.getMunicipio(), habilidades.get(jComboBox1.getSelectedIndex()) )) {
-               String[] fila = {maestro.getNombre(),maestro.getApellido(), maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex()))+"",maestro.getMunicipio().toString()};
+               String[] fila = {maestro.getNombre(),maestro.getApellido(), maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex())),maestro.getMunicipio().toString()};
                model.addRow(fila);
                maestrosEle.add(maestro);
             }  
@@ -71,7 +71,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
           for (Maestro maestro : maestros) {
           //System.out.println(cliente.getMunicipio()+"view.BuscarMaestro.<init>()"+ jComboBox1.getSelectedItem().toString());
             if (maestro.getCumple(cliente.getMunicipio(), habilidades.get(jComboBox1.getSelectedIndex()) )) {
-               String[] fila = {maestro.getNombre(),maestro.getApellido(),maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex()))+"" ,maestro.getMunicipio().toString()};
+               String[] fila = {maestro.getNombre(),maestro.getApellido(),maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex())) ,maestro.getMunicipio().toString()};
                model.addRow(fila);
                maestrosEle.add(maestro); 
             }  

@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * @author Santiago
  */
 public class Destreza {
-    private float promedio;
     private Habilidad habilidad;
     private ArrayList<Calificacion> calificaciones;
 
@@ -21,7 +20,6 @@ public class Destreza {
      * 'habilidad' es en lo que se destaca el maestro en la destreza
      */
     public Destreza( Habilidad habilidad) {
-        this.promedio = 0;
         this.habilidad = habilidad;
         calificaciones = new ArrayList<>();
     }
@@ -30,13 +28,21 @@ public class Destreza {
      * Método para conocer el primedio de la destreza
      * @return devuelve un float con el promedio de la destreza
      */
-    public float getPromedio() {
-        promedio = 0;
+    public String getPromedio() {
+        float promedio = 0;
+        String retuProme;
         for (Calificacion calificacione : getCalificaciones()) {
             promedio = promedio + calificacione.getValoracion();
         }
-       
-        return promedio/getCalificaciones().size();
+        
+        if (promedio <=0) {
+            retuProme = "El maestro no registra calificaciones";
+        }
+        else{
+            retuProme = (promedio/getCalificaciones().size())+"";
+        }
+        
+        return retuProme;
     }
 
 

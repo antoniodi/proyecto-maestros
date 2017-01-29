@@ -178,7 +178,8 @@ public class home extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
        
-        (new ClienteV()).setVisible(true);
+       ClienteV clienteV = new ClienteV();
+       clienteV.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

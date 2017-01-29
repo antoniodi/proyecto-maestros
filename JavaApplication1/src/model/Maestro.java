@@ -76,7 +76,7 @@ public class Maestro {
     /*
     Obtiene la calificacion del maestro
     */
-    public float getCalifiByDestre(Habilidad habilidad){
+    public String getCalifiByDestre(Habilidad habilidad){
         Destreza destrezaEle = null;
         for (Destreza destreza : destrezas) {
                 if(destreza.getHabilidad().equals(habilidad)){

@@ -25,7 +25,7 @@ public class DetaMaestro extends javax.swing.JFrame {
         String[] titulos = {"Autor", "Comentario", "Calificación", "Municipio"};
         model = new DefaultTableModel(null, titulos);
         
-        jLabel1.setText(maestro.getNombre()+" - "+destreza.getHabilidad().toString()+" - "+destreza.getPromedio());
+        jLabel1.setText(maestro.getNombre()+" - "+destreza.getHabilidad().toString()+" - "+destreza.getPromedio()+"");
         /*
         agregamos a la tabla los comentarios que le han realizado al maestro
         */
