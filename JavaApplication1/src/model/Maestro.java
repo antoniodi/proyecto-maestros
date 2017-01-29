@@ -29,12 +29,11 @@ public class Maestro {
      * 'email' es el correo electronico del maestro
      * 'direccion' es la dirección del domicilio del maestro
      */
-    public Maestro(String nombre, String apellido, String cedula, String telefono, String email, Municipio municipio, String direccion) {
+    public Maestro(String nombre, String apellido, String cedula, String telefono, Municipio municipio, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.telefono = telefono;
-        this.email = email;
         this.municipio = municipio;
         this.direccion = direccion;
     }

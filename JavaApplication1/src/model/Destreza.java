@@ -30,17 +30,13 @@ public class Destreza {
      * @return devuelve un float con el promedio de la destreza
      */
     public float getPromedio() {
-        return promedio;
+        for (Calificacion calificacione : calificaciones) {
+            promedio = promedio + calificacione.getValoracion();
+        }
+       
+        return promedio/calificaciones.size();
     }
 
-    /**
-     * Método para modificar el promedio de la destreza
-     * @param
-     * 'promedio' es un float con el promedio que se va a asignar al maestro
-     */
-    public void setPromedio(float promedio) {
-        this.promedio = promedio;
-    }
 
     /**
      * Método para conocer la habilidad de la destreza
@@ -50,12 +46,5 @@ public class Destreza {
         return habilidad;
     }
 
-    /**
-     * Método para modificar la habilidad de la destreza
-     * @param
-     * 'habilidad' es un Habilidad con la habilidad que se va a asignar al maestro
-     */
-    public void setHabilidad(Habilidad habilidad) {
-        this.habilidad = habilidad;
-    }
+   
 }

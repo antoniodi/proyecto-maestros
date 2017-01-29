@@ -70,9 +70,9 @@ public class BuscarMaestro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SELECIONE UNA PARTE DE LA CASA");
+        jLabel1.setText("SELECIONE EL MAESTRO QUE MAS TE CONVENGA");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(0, 0, 360, 50);
+        jLabel1.setBounds(0, 0, 560, 50);
 
         jComboBox1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las especialidades" }));
