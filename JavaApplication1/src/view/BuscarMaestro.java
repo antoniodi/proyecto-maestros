@@ -28,9 +28,11 @@ public class BuscarMaestro extends javax.swing.JFrame {
     private DefaultTableModel model;
     private Maestros testMaestros;
     private ArrayList<Maestro> maestrosEle;
+    private Cliente cliente;
     
     public BuscarMaestro(Cliente cliente,ArrayList<Habilidad> habilidades) {
         initComponents();
+        this.cliente = cliente;
         testMaestros = new Maestros();
         maestrosEle = new ArrayList<>();
         
@@ -196,7 +198,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
         Maestro maestroseleccionado = maestrosEle.get(fila);
         Destreza destrezaSeleccionada = maestrosEle.get(fila).getDestreByHabilidad(habilidades.get(jComboBox1.getSelectedIndex()));
         maestrosEle.removeAll(maestrosEle);
-        new DetaMaestro(maestroseleccionado , destrezaSeleccionada).setVisible(true);
+        new DetaMaestro(maestroseleccionado , destrezaSeleccionada, cliente).setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
 

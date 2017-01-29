@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.table.DefaultTableModel;
 import model.Calificacion;
+import model.Cliente;
 import model.Destreza;
 import model.Maestro;
 
@@ -19,9 +20,15 @@ public class DetaMaestro extends javax.swing.JFrame {
     /**
      * Creates new form DetaMaestro
      */
+    private Maestro maestro;
+    private Destreza destreza;
+    private Cliente cliente;
     private DefaultTableModel model;
-    public DetaMaestro(Maestro maestro, Destreza destreza) {
+    public DetaMaestro(Maestro maestro, Destreza destreza, Cliente cliente) {
         initComponents();
+        this.destreza = destreza;
+        this.maestro = maestro;
+        this.cliente = cliente;
         String[] titulos = {"Autor", "Comentario", "Calificación", "Municipio"};
         model = new DefaultTableModel(null, titulos);
         
@@ -84,7 +91,12 @@ public class DetaMaestro extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
-        jButton1.setText("Iniciar Obra");
+        jButton1.setText("Elegir maestro");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/engineer.png"))); // NOI18N
 
@@ -111,14 +123,14 @@ public class DetaMaestro extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(219, 219, 219))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(220, 220, 220))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))))
+                        .addGap(100, 100, 100))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(208, 208, 208))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,6 +170,10 @@ public class DetaMaestro extends javax.swing.JFrame {
         //obtenemos la fila de la tabla sobre la cual el usuario selecciono
         
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        new ProyectoV(maestro , destreza, cliente).setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
   
 
