@@ -8,6 +8,7 @@ package view;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
+import model.Cliente;
 import model.Habilidad;
 
 /**
@@ -22,7 +23,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
     private ArrayList<Habilidad> habilidades;
     private DefaultTableModel model;
     
-    public BuscarMaestro(ArrayList<Habilidad> habilidades) {
+    public BuscarMaestro(Cliente cliente,ArrayList<Habilidad> habilidades) {
         initComponents();
         this.habilidades = habilidades;
         

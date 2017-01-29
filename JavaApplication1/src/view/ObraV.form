@@ -122,9 +122,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/brick-wall.png"/>
+              <Image iconType="3" name="/img/door.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage1MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -143,9 +146,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/parquet.png"/>
+              <Image iconType="3" name="/img/restroom.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage3MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -164,9 +170,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/roof.png"/>
+              <Image iconType="3" name="/img/window.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage4MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -185,9 +194,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/hygienic.png"/>
+              <Image iconType="3" name="/img/brick-wall.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage5MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -206,9 +218,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/door.png"/>
+              <Image iconType="3" name="/img/roof.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage2MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -227,9 +242,12 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/house/window.png"/>
+              <Image iconType="3" name="/img/parquet.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="panelImage6MouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

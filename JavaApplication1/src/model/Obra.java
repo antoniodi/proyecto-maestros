@@ -11,6 +11,7 @@ import java.util.*;
  */
 public class Obra {
     private HashMap<ParteCasa,ArrayList<Habilidad>> obra;
+    private ArrayList<Habilidad> habilidades;
    
 
     /**
@@ -18,23 +19,32 @@ public class Obra {
      */
     public Obra()
     {obra = new HashMap<>();
-     obra.put(ParteCasa.PISO,agregarHabilidades(Habilidad.ENCHAPE,Habilidad.MANPOSTERIA));
+     obra.put(ParteCasa.PUERTA,agregarHabilidades(Habilidad.PINTURA,Habilidad.MANPOSTERIA));
+     obra.put(ParteCasa.VENTANA,agregarHabilidades(Habilidad.PINTURA,Habilidad.MANPOSTERIA)); 
+     obra.put(ParteCasa.BAÑO,agregarHabilidades(Habilidad.ENCHAPE,Habilidad.MANPOSTERIA,Habilidad.PINTURA, Habilidad.PLOMERIA));
+     obra.put(ParteCasa.TECHO,agregarHabilidades(Habilidad.PINTURA,Habilidad.ESTUCO,Habilidad.MANPOSTERIA));
+     obra.put(ParteCasa.PISO,agregarHabilidades(Habilidad.ENCHAPE,Habilidad.MANPOSTERIA,Habilidad.PLOMERIA));
      obra.put(ParteCasa.PARED,agregarHabilidades(Habilidad.PINTURA,Habilidad.ESTUCO,Habilidad.ENCHAPE));
-            
+     
     }
     /**
      * Usamos etse metodo para conocer las Habiliades relacionadas con un elemento de la casa
      */
     public void conocerHabilidades(String elementoElegido){
     Iterator it = obra.entrySet().iterator();
+    //habilidades = new ArrayList<>();
 		
     while (it.hasNext()) {
     	Map.Entry e = (Map.Entry)it.next();
     	if (e.getKey().toString() == elementoElegido){
     	System.out.println(e.getKey() + " " + e.getValue());
-    }
+        }
     }
     
+    }
+    
+    public ArrayList<Habilidad> getHabiByParteCasa(ParteCasa parteCasa){   
+        return obra.get(parteCasa);
     }
     /**
      * Agregamos 1 Habilidad que se encuentren relacionadas con un elemento especifico
@@ -64,7 +74,18 @@ public class Obra {
     habilidades.add(habilidad1);
     habilidades.add(habilidad2);
     habilidades.add(habilidad3);
-    return habilidades;
+    return habilidades;    
+    }
     
+    /**
+     * Agregamos 4 Habilidades que se encuentren relacionadas con un elemento especifico
+     */
+    public ArrayList<Habilidad> agregarHabilidades(Habilidad habilidad1, Habilidad habilidad2, Habilidad habilidad3, Habilidad habilidad4){
+    ArrayList<Habilidad> habilidades = new ArrayList<Habilidad>();
+    habilidades.add(habilidad1);
+    habilidades.add(habilidad2);
+    habilidades.add(habilidad3);
+    habilidades.add(habilidad4);
+    return habilidades;    
     }
 }

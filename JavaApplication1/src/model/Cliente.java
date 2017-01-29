@@ -29,14 +29,13 @@ public class Cliente {
      * 'telefono' es el telefono del cliente
      * 'email' es el correo electronico del cliente
      */
-    public Cliente(String nombre, String apellido, String cedula, String telefono, String email, Municipio municipio, String direccion)
+    public Cliente(String nombre, String apellido, String cedula, String telefono, Municipio municipio, String direccion)
     {
         // initialise instance variables
         this.nombre=nombre;
         this.apellido=apellido;
         this.cedula=cedula;
         this.telefono=telefono;
-        this.email = email;
         this.municipio = municipio;
         this.direccion = direccion;
     }

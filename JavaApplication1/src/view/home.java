@@ -5,6 +5,8 @@
  */
 package view;
 
+import model.Municipio;
+
 /**
  *
  * @author JULIZ T
@@ -14,6 +16,7 @@ public class home extends javax.swing.JFrame {
     /**
      * Creates new form home
      */
+    private home inicio;
     public home() {
         initComponents();
     }
@@ -55,6 +58,11 @@ public class home extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
         jButton1.setText("Ingresar como patron");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/patron.jpg"))); // NOI18N
 
@@ -77,7 +85,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(89, 89, 89)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -116,7 +124,7 @@ public class home extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelImage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(24, 24, 24)
                         .addComponent(jButton2)))
                 .addContainerGap())
         );
@@ -167,6 +175,11 @@ public class home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+       
+        (new ClienteV()).setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

@@ -10,5 +10,5 @@ package model;
  * @author Santiago
  */
 public enum ParteCasa {
-    PISCINA, PISO, TECHO, PARED
+    PISO, TECHO, PARED, BAÑO, PUERTA, VENTANA
 }

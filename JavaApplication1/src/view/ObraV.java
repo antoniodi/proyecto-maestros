@@ -5,6 +5,10 @@
  */
 package view;
 
+import model.Cliente;
+import model.Obra;
+import model.ParteCasa;
+
 /**
  *
  * @author JULIZ T
@@ -14,8 +18,17 @@ public class ObraV extends javax.swing.JFrame {
     /**
      * Creates new form ObraV
      */
-    public ObraV() {
+    private Obra obra;
+    private Cliente cliente;
+    public ObraV(Cliente cliente) {
+        this.cliente = cliente;
+        obra = new Obra();
         initComponents();
+        
+    }
+
+    private ObraV() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -51,7 +64,12 @@ public class ObraV extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 360, 50);
 
         panelImage1.setToolTipText("");
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/brick-wall.png"))); // NOI18N
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/door.png"))); // NOI18N
+        panelImage1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -65,7 +83,12 @@ public class ObraV extends javax.swing.JFrame {
         );
 
         panelImage3.setToolTipText("");
-        panelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/parquet.png"))); // NOI18N
+        panelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/restroom.png"))); // NOI18N
+        panelImage3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage3Layout = new javax.swing.GroupLayout(panelImage3);
         panelImage3.setLayout(panelImage3Layout);
@@ -79,7 +102,12 @@ public class ObraV extends javax.swing.JFrame {
         );
 
         panelImage4.setToolTipText("");
-        panelImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/roof.png"))); // NOI18N
+        panelImage4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/window.png"))); // NOI18N
+        panelImage4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage4Layout = new javax.swing.GroupLayout(panelImage4);
         panelImage4.setLayout(panelImage4Layout);
@@ -93,7 +121,12 @@ public class ObraV extends javax.swing.JFrame {
         );
 
         panelImage5.setToolTipText("");
-        panelImage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/hygienic.png"))); // NOI18N
+        panelImage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/brick-wall.png"))); // NOI18N
+        panelImage5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
         panelImage5.setLayout(panelImage5Layout);
@@ -107,7 +140,12 @@ public class ObraV extends javax.swing.JFrame {
         );
 
         panelImage2.setToolTipText("");
-        panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/door.png"))); // NOI18N
+        panelImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/roof.png"))); // NOI18N
+        panelImage2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
         panelImage2.setLayout(panelImage2Layout);
@@ -121,7 +159,12 @@ public class ObraV extends javax.swing.JFrame {
         );
 
         panelImage6.setToolTipText("");
-        panelImage6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/house/window.png"))); // NOI18N
+        panelImage6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/parquet.png"))); // NOI18N
+        panelImage6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelImage6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage6Layout = new javax.swing.GroupLayout(panelImage6);
         panelImage6.setLayout(panelImage6Layout);
@@ -186,6 +229,31 @@ public class ObraV extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void panelImage1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage1MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.PUERTA)).setVisible(true);
+        
+    }//GEN-LAST:event_panelImage1MouseClicked
+
+    private void panelImage4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage4MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.VENTANA)).setVisible(true);
+    }//GEN-LAST:event_panelImage4MouseClicked
+
+    private void panelImage3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage3MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.BAÑO)).setVisible(true);
+    }//GEN-LAST:event_panelImage3MouseClicked
+
+    private void panelImage2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage2MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.TECHO)).setVisible(true);
+    }//GEN-LAST:event_panelImage2MouseClicked
+
+    private void panelImage6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage6MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.PISO)).setVisible(true);
+    }//GEN-LAST:event_panelImage6MouseClicked
+
+    private void panelImage5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelImage5MouseClicked
+        new BuscarMaestro(cliente, obra.getHabiByParteCasa(ParteCasa.PISO)).setVisible(true);
+    }//GEN-LAST:event_panelImage5MouseClicked
 
     /**
      * @param args the command line arguments
