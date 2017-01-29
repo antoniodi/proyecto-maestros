@@ -36,15 +36,82 @@ public class Maestro {
         this.telefono = telefono;
         this.municipio = municipio;
         this.direccion = direccion;
+        destrezas = new ArrayList<>();
     }
+    
+    /*
+    devuelve true si el maestro tiene la habilidad que requiere el cliente
+    */
+    public boolean getCumple(Municipio municipio,Habilidad habilidad){
+        boolean cumple = false;
+ 
+        if (this.municipio.equals(municipio)) {
+            for (Destreza destreza : destrezas) {
+                if(destreza.getHabilidad().equals(habilidad)){                  
+                     cumple = true; 
+                     break;
+                     
+                          
+                }
+            
+            }
+        
+        }
+        System.out.println(cumple);
+    return cumple;
+    }
+    /*
+    Metodo que permite calificar una destreza 
+    */
+    public void calificarDestreza(Habilidad habilidad,Calificacion calificacion){
+        
+        for (Destreza destreza : destrezas) {
+                if(destreza.getHabilidad().equals(habilidad)){
+                     destreza.addCalificacion(calificacion);
+                     break;
+                }        
+        }
+    
+    }
+    /*
+    Obtiene la calificacion del maestro
+    */
+    public float getCalifiByDestre(Habilidad habilidad){
+        Destreza destrezaEle = null;
+        for (Destreza destreza : destrezas) {
+                if(destreza.getHabilidad().equals(habilidad)){
+                     destrezaEle = destreza;
+                     break;
+                }        
+        }
+        
+        return destrezaEle.getPromedio();  
+    }
+    /*
+    Obtiene la destreza del maestro a partir de su habilidad
+    */
+    public Destreza getDestreByHabilidad(Habilidad habilidad){
+        Destreza destrezaEle = null;
+        for (Destreza destreza : destrezas) {
+                if(destreza.getHabilidad().equals(habilidad)){
+                     destrezaEle = destreza;
+                     break;
+                }        
+        }
+        
+        return destrezaEle;  
+    }
+    
    /**
      * Esta funcion se encarga de agregar una destreza
      * @param
      * 'habilidaElegida' es la habilidad en la que el maestro se destaca en la destreza
      */
-    public void agregardestreza(Habilidad habilidaElegida){           
-         destrezas.add(new Destreza(habilidaElegida));
+    public void agregarDestreza(Habilidad habilidaElegida){    
+        destrezas.add(new Destreza(habilidaElegida));
     }
+    
+    
      
      /**
      * Método para conocer el municipo donde esta ubicado el Mestro
@@ -155,5 +222,12 @@ public class Maestro {
      */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    /**
+     * @return the destrezas
+     */
+    public ArrayList<Destreza> getDestrezas() {
+        return destrezas;
     }
 }

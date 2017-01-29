@@ -23,6 +23,7 @@ public class Destreza {
     public Destreza( Habilidad habilidad) {
         this.promedio = 0;
         this.habilidad = habilidad;
+        calificaciones = new ArrayList<>();
     }
 
     /**
@@ -30,11 +31,12 @@ public class Destreza {
      * @return devuelve un float con el promedio de la destreza
      */
     public float getPromedio() {
-        for (Calificacion calificacione : calificaciones) {
+        promedio = 0;
+        for (Calificacion calificacione : getCalificaciones()) {
             promedio = promedio + calificacione.getValoracion();
         }
        
-        return promedio/calificaciones.size();
+        return promedio/getCalificaciones().size();
     }
 
 
@@ -45,6 +47,18 @@ public class Destreza {
     public Habilidad getHabilidad() {
         return habilidad;
     }
+
+    /**
+     * @return the calificaciones
+     */
+    public ArrayList<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+    
+   public void addCalificacion(Calificacion calificacion){
+       
+       calificaciones.add(calificacion);
+   }
 
    
 }

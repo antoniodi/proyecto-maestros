@@ -25,6 +25,7 @@ public class Comentario {
      * 'descripcion' es el contenido del comentario
      */
     public Comentario(String autor, String descripcion) {
+        
         this.fecha = new Date();
         this.autor = autor;
         this.descripcion = descripcion;
@@ -56,7 +57,7 @@ public class Comentario {
      */
     public String getFecha()
     {DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        System.out.println(dateFormat.format(fecha));
+        
         return dateFormat.format(this.fecha);
     }
     

@@ -5,11 +5,15 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 import model.Cliente;
+import model.Destreza;
 import model.Habilidad;
+import model.Maestro;
+import model.Maestros;
 
 /**
  *
@@ -22,27 +26,64 @@ public class BuscarMaestro extends javax.swing.JFrame {
      */
     private ArrayList<Habilidad> habilidades;
     private DefaultTableModel model;
+    private Maestros testMaestros;
+    private ArrayList<Maestro> maestrosEle;
     
     public BuscarMaestro(Cliente cliente,ArrayList<Habilidad> habilidades) {
         initComponents();
+        testMaestros = new Maestros();
+        maestrosEle = new ArrayList<>();
+        
+        ArrayList<Maestro> maestros =  testMaestros.getMaestros();
+    
         this.habilidades = habilidades;
         
         for (int i = 0; i < habilidades.size(); i++) {
-            jComboBox1.addItem(habilidades.get(i).toString());
-            
-            System.out.println(habilidades.get(i).toString());      
+            jComboBox1.addItem(habilidades.get(i).toString());           
+               
         }
         
-        String[] titulos = {"Nombre", "Destreza", "Puntuacion"};
+      
+      
+        
+        
+        
+        String[] titulos = {"Nombre", "Destreza", "Puntuacion", "Municipio"};
         model = new DefaultTableModel(null, titulos);
        
-        String[] fila = {"Pedro","Pintura", "4.5"};
-        model.addRow(fila);
-        jTable1.setModel(model);
+        /*
+        Buscamos dentro de los maestros disponibles los que se encuentran ubicados en la misma ciudad y cuentan con la destreza que necesia el cliente
+        */
+        for (Maestro maestro : maestros) {      
+            if (maestro.getCumple(cliente.getMunicipio(), habilidades.get(jComboBox1.getSelectedIndex()) )) {
+               String[] fila = {maestro.getNombre(),maestro.getApellido(), maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex()))+"",maestro.getMunicipio().toString()};
+               model.addRow(fila);
+               maestrosEle.add(maestro);
+            }  
+            jTable1.setModel(model);
+        }
         
         
+        jComboBox1.addActionListener (new ActionListener () {
+         public void actionPerformed(ActionEvent e) {  
+          maestrosEle.removeAll(maestrosEle);
+          model = new DefaultTableModel(null, titulos);
+          for (Maestro maestro : maestros) {
+          //System.out.println(cliente.getMunicipio()+"view.BuscarMaestro.<init>()"+ jComboBox1.getSelectedItem().toString());
+            if (maestro.getCumple(cliente.getMunicipio(), habilidades.get(jComboBox1.getSelectedIndex()) )) {
+               String[] fila = {maestro.getNombre(),maestro.getApellido(),maestro.getCalifiByDestre(habilidades.get(jComboBox1.getSelectedIndex()))+"" ,maestro.getMunicipio().toString()};
+               model.addRow(fila);
+               maestrosEle.add(maestro); 
+            }  
+            jTable1.setModel(model);
+        }
+            
+        }
+        });
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +101,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +117,6 @@ public class BuscarMaestro extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 560, 50);
 
         jComboBox1.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas las especialidades" }));
 
         jLabel2.setBackground(new java.awt.Color(102, 255, 102));
         jLabel2.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 18)); // NOI18N
@@ -91,35 +132,45 @@ public class BuscarMaestro extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel3.setBackground(new java.awt.Color(102, 255, 102));
+        jLabel3.setFont(new java.awt.Font("Nirmala UI Semilight", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("SELECIONE LA OBRA QUE REQUIERE");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(86, 86, 86))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 37, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,9 +183,7 @@ public class BuscarMaestro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 95, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -142,50 +191,20 @@ public class BuscarMaestro extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        //click sobre la tabla
-        int fila = jTable1.getSelectedRow();
-        System.out.println(fila);
+        //obtenemos la fila de la tabla sobre la cual el usuario selecciono
+        int fila = jTable1.getSelectedRow(); 
+        Maestro maestroseleccionado = maestrosEle.get(fila);
+        Destreza destrezaSeleccionada = maestrosEle.get(fila).getDestreByHabilidad(habilidades.get(jComboBox1.getSelectedIndex()));
+        maestrosEle.removeAll(maestrosEle);
+        new DetaMaestro(maestroseleccionado , destrezaSeleccionada).setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscarMaestro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscarMaestro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscarMaestro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscarMaestro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

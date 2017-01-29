@@ -39,8 +39,7 @@ public class Obra {
     	if (e.getKey().toString() == elementoElegido){
     	System.out.println(e.getKey() + " " + e.getValue());
         }
-    }
-    
+        } 
     }
     
     public ArrayList<Habilidad> getHabiByParteCasa(ParteCasa parteCasa){   
